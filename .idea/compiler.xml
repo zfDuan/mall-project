@@ -7,28 +7,37 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mall-ware" />
+        <module name="renren-generator" />
+        <module name="mall-common" />
         <module name="mall-coupon" />
-        <module name="mall-member" />
         <module name="mall-product" />
+        <module name="mall-member" />
         <module name="mall-order" />
+        <module name="renren-fast" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="mall-common" target="1.5" />
       <module name="mall-coupon" target="11" />
       <module name="mall-member" target="11" />
       <module name="mall-order" target="11" />
       <module name="mall-product" target="11" />
       <module name="mall-project" target="1.5" />
       <module name="mall-ware" target="11" />
+      <module name="renren-fast" target="11" />
+      <module name="renren-generator" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="mall-common" options="" />
       <module name="mall-coupon" options="-parameters" />
       <module name="mall-member" options="-parameters" />
       <module name="mall-order" options="-parameters" />
       <module name="mall-product" options="-parameters" />
       <module name="mall-ware" options="-parameters" />
+      <module name="renren-fast" options="-parameters" />
+      <module name="renren-generator" options="-parameters" />
     </option>
   </component>
 </project>
