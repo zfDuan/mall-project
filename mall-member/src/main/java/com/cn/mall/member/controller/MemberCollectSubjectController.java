@@ -25,7 +25,7 @@ import com.cn.mall.common.utils.R;
  * @date 2020-09-22 23:32:22
  */
 @RestController
-@RequestMapping("member/umsmembercollectsubject")
+@RequestMapping("member/membercollectsubject")
 public class MemberCollectSubjectController {
     @Autowired
     private MemberCollectSubjectService memberCollectSubjectService;
@@ -34,7 +34,7 @@ public class MemberCollectSubjectController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:umsmembercollectsubject:list")
+    //@RequiresPermissions("member:membercollectsubject:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberCollectSubjectService.queryPage(params);
 
@@ -46,20 +46,20 @@ public class MemberCollectSubjectController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:umsmembercollectsubject:info")
+    //@RequiresPermissions("member:membercollectsubject:info")
     public R info(@PathVariable("id") Long id){
-		MemberCollectSubjectEntity umsMemberCollectSubject = memberCollectSubjectService.getById(id);
+        MemberCollectSubjectEntity memberCollectSubject = memberCollectSubjectService.getById(id);
 
-        return R.ok().put("umsMemberCollectSubject", umsMemberCollectSubject);
+        return R.ok().put("memberCollectSubject", memberCollectSubject);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:umsmembercollectsubject:save")
-    public R save(@RequestBody MemberCollectSubjectEntity umsMemberCollectSubject){
-		memberCollectSubjectService.save(umsMemberCollectSubject);
+    //@RequiresPermissions("member:membercollectsubject:save")
+    public R save(@RequestBody MemberCollectSubjectEntity memberCollectSubject){
+        memberCollectSubjectService.save(memberCollectSubject);
 
         return R.ok();
     }
@@ -68,9 +68,9 @@ public class MemberCollectSubjectController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:umsmembercollectsubject:update")
-    public R update(@RequestBody MemberCollectSubjectEntity umsMemberCollectSubject){
-		memberCollectSubjectService.updateById(umsMemberCollectSubject);
+    //@RequiresPermissions("member:membercollectsubject:update")
+    public R update(@RequestBody MemberCollectSubjectEntity memberCollectSubject){
+        memberCollectSubjectService.updateById(memberCollectSubject);
 
         return R.ok();
     }
@@ -79,11 +79,12 @@ public class MemberCollectSubjectController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:umsmembercollectsubject:delete")
+    //@RequiresPermissions("member:membercollectsubject:delete")
     public R delete(@RequestBody Long[] ids){
-		memberCollectSubjectService.removeByIds(Arrays.asList(ids));
+        memberCollectSubjectService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
+
 
 }

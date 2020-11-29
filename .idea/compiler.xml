@@ -15,6 +15,7 @@
         <module name="mall-order" />
         <module name="renren-fast" />
         <module name="mall-gateway" />
+        <module name="mall-third-party" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11">
@@ -25,6 +26,7 @@
       <module name="mall-order" target="11" />
       <module name="mall-product" target="11" />
       <module name="mall-project" target="1.5" />
+      <module name="mall-third-party" target="11" />
       <module name="mall-ware" target="11" />
       <module name="renren-fast" target="11" />
       <module name="renren-generator" target="11" />
@@ -38,6 +40,7 @@
       <module name="mall-member" options="-parameters" />
       <module name="mall-order" options="-parameters" />
       <module name="mall-product" options="-parameters" />
+      <module name="mall-third-party" options="-parameters" />
       <module name="mall-ware" options="-parameters" />
       <module name="renren-fast" options="-parameters" />
       <module name="renren-generator" options="-parameters" />

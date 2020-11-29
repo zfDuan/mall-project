@@ -48,7 +48,7 @@ public class PurchaseDetailController {
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("ware:purchasedetail:info")
     public R info(@PathVariable("id") Long id){
-		PurchaseDetailEntity purchaseDetail = purchaseDetailService.getById(id);
+        PurchaseDetailEntity purchaseDetail = purchaseDetailService.getById(id);
 
         return R.ok().put("purchaseDetail", purchaseDetail);
     }
@@ -59,7 +59,7 @@ public class PurchaseDetailController {
     @RequestMapping("/save")
     //@RequiresPermissions("ware:purchasedetail:save")
     public R save(@RequestBody PurchaseDetailEntity purchaseDetail){
-		purchaseDetailService.save(purchaseDetail);
+        purchaseDetailService.save(purchaseDetail);
 
         return R.ok();
     }
@@ -70,7 +70,7 @@ public class PurchaseDetailController {
     @RequestMapping("/update")
     //@RequiresPermissions("ware:purchasedetail:update")
     public R update(@RequestBody PurchaseDetailEntity purchaseDetail){
-		purchaseDetailService.updateById(purchaseDetail);
+        purchaseDetailService.updateById(purchaseDetail);
 
         return R.ok();
     }
@@ -81,9 +81,8 @@ public class PurchaseDetailController {
     @RequestMapping("/delete")
     //@RequiresPermissions("ware:purchasedetail:delete")
     public R delete(@RequestBody Long[] ids){
-		purchaseDetailService.removeByIds(Arrays.asList(ids));
+        purchaseDetailService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
-
 }

@@ -25,7 +25,7 @@ import com.cn.mall.common.utils.R;
  * @date 2020-09-22 23:32:22
  */
 @RestController
-@RequestMapping("member/umsmemberreceiveaddress")
+@RequestMapping("member/memberreceiveaddress")
 public class MemberReceiveAddressController {
     @Autowired
     private MemberReceiveAddressService memberReceiveAddressService;
@@ -34,7 +34,7 @@ public class MemberReceiveAddressController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:umsmemberreceiveaddress:list")
+    //@RequiresPermissions("member:memberreceiveaddress:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberReceiveAddressService.queryPage(params);
 
@@ -46,20 +46,20 @@ public class MemberReceiveAddressController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:umsmemberreceiveaddress:info")
+    //@RequiresPermissions("member:memberreceiveaddress:info")
     public R info(@PathVariable("id") Long id){
-		MemberReceiveAddressEntity umsMemberReceiveAddress = memberReceiveAddressService.getById(id);
+        MemberReceiveAddressEntity memberReceiveAddress = memberReceiveAddressService.getById(id);
 
-        return R.ok().put("umsMemberReceiveAddress", umsMemberReceiveAddress);
+        return R.ok().put("memberReceiveAddress", memberReceiveAddress);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:umsmemberreceiveaddress:save")
-    public R save(@RequestBody MemberReceiveAddressEntity umsMemberReceiveAddress){
-		memberReceiveAddressService.save(umsMemberReceiveAddress);
+    //@RequiresPermissions("member:memberreceiveaddress:save")
+    public R save(@RequestBody MemberReceiveAddressEntity memberReceiveAddress){
+        memberReceiveAddressService.save(memberReceiveAddress);
 
         return R.ok();
     }
@@ -68,9 +68,9 @@ public class MemberReceiveAddressController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:umsmemberreceiveaddress:update")
-    public R update(@RequestBody MemberReceiveAddressEntity umsMemberReceiveAddress){
-		memberReceiveAddressService.updateById(umsMemberReceiveAddress);
+    //@RequiresPermissions("member:memberreceiveaddress:update")
+    public R update(@RequestBody MemberReceiveAddressEntity memberReceiveAddress){
+        memberReceiveAddressService.updateById(memberReceiveAddress);
 
         return R.ok();
     }
@@ -79,9 +79,9 @@ public class MemberReceiveAddressController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:umsmemberreceiveaddress:delete")
+    //@RequiresPermissions("member:memberreceiveaddress:delete")
     public R delete(@RequestBody Long[] ids){
-		memberReceiveAddressService.removeByIds(Arrays.asList(ids));
+        memberReceiveAddressService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

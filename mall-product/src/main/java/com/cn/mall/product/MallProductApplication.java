@@ -7,8 +7,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @MapperScan("com.cn.mall.product.dao")
-//@EnableDiscoveryClient
-//@EnableFeignClients(basePackages = "com.cn.mall.product.feign")
+@EnableDiscoveryClient
+@EnableFeignClients(basePackages = "com.cn.mall.product.feign")
 @SpringBootApplication
 public class MallProductApplication {
 

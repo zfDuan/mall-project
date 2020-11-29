@@ -25,7 +25,7 @@ import com.cn.mall.common.utils.R;
  * @date 2020-09-22 23:32:22
  */
 @RestController
-@RequestMapping("member/umsgrowthchangehistory")
+@RequestMapping("member/growthchangehistory")
 public class GrowthChangeHistoryController {
     @Autowired
     private GrowthChangeHistoryService growthChangeHistoryService;
@@ -34,7 +34,7 @@ public class GrowthChangeHistoryController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:umsgrowthchangehistory:list")
+    //@RequiresPermissions("member:growthchangehistory:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = growthChangeHistoryService.queryPage(params);
 
@@ -46,20 +46,20 @@ public class GrowthChangeHistoryController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:umsgrowthchangehistory:info")
+    //@RequiresPermissions("member:growthchangehistory:info")
     public R info(@PathVariable("id") Long id){
-		GrowthChangeHistoryEntity umsGrowthChangeHistory = growthChangeHistoryService.getById(id);
+        GrowthChangeHistoryEntity growthChangeHistory = growthChangeHistoryService.getById(id);
 
-        return R.ok().put("umsGrowthChangeHistory", umsGrowthChangeHistory);
+        return R.ok().put("growthChangeHistory", growthChangeHistory);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:umsgrowthchangehistory:save")
-    public R save(@RequestBody GrowthChangeHistoryEntity umsGrowthChangeHistory){
-		growthChangeHistoryService.save(umsGrowthChangeHistory);
+    //@RequiresPermissions("member:growthchangehistory:save")
+    public R save(@RequestBody GrowthChangeHistoryEntity growthChangeHistory){
+        growthChangeHistoryService.save(growthChangeHistory);
 
         return R.ok();
     }
@@ -68,9 +68,9 @@ public class GrowthChangeHistoryController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:umsgrowthchangehistory:update")
-    public R update(@RequestBody GrowthChangeHistoryEntity umsGrowthChangeHistory){
-		growthChangeHistoryService.updateById(umsGrowthChangeHistory);
+    //@RequiresPermissions("member:growthchangehistory:update")
+    public R update(@RequestBody GrowthChangeHistoryEntity growthChangeHistory){
+        growthChangeHistoryService.updateById(growthChangeHistory);
 
         return R.ok();
     }
@@ -79,9 +79,9 @@ public class GrowthChangeHistoryController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:umsgrowthchangehistory:delete")
+    //@RequiresPermissions("member:growthchangehistory:delete")
     public R delete(@RequestBody Long[] ids){
-		growthChangeHistoryService.removeByIds(Arrays.asList(ids));
+        growthChangeHistoryService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }

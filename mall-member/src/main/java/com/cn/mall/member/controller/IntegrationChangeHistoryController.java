@@ -25,7 +25,7 @@ import com.cn.mall.common.utils.R;
  * @date 2020-09-22 23:32:22
  */
 @RestController
-@RequestMapping("member/umsintegrationchangehistory")
+@RequestMapping("member/integrationchangehistory")
 public class IntegrationChangeHistoryController {
     @Autowired
     private IntegrationChangeHistoryService integrationChangeHistoryService;
@@ -34,7 +34,7 @@ public class IntegrationChangeHistoryController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:umsintegrationchangehistory:list")
+    //@RequiresPermissions("member:integrationchangehistory:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = integrationChangeHistoryService.queryPage(params);
 
@@ -46,20 +46,20 @@ public class IntegrationChangeHistoryController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:umsintegrationchangehistory:info")
+    //@RequiresPermissions("member:integrationchangehistory:info")
     public R info(@PathVariable("id") Long id){
-		IntegrationChangeHistoryEntity umsIntegrationChangeHistory = integrationChangeHistoryService.getById(id);
+        IntegrationChangeHistoryEntity integrationChangeHistory = integrationChangeHistoryService.getById(id);
 
-        return R.ok().put("umsIntegrationChangeHistory", umsIntegrationChangeHistory);
+        return R.ok().put("integrationChangeHistory", integrationChangeHistory);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:umsintegrationchangehistory:save")
-    public R save(@RequestBody IntegrationChangeHistoryEntity umsIntegrationChangeHistory){
-		integrationChangeHistoryService.save(umsIntegrationChangeHistory);
+    //@RequiresPermissions("member:integrationchangehistory:save")
+    public R save(@RequestBody IntegrationChangeHistoryEntity integrationChangeHistory){
+        integrationChangeHistoryService.save(integrationChangeHistory);
 
         return R.ok();
     }
@@ -68,9 +68,9 @@ public class IntegrationChangeHistoryController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:umsintegrationchangehistory:update")
-    public R update(@RequestBody IntegrationChangeHistoryEntity umsIntegrationChangeHistory){
-		integrationChangeHistoryService.updateById(umsIntegrationChangeHistory);
+    //@RequiresPermissions("member:integrationchangehistory:update")
+    public R update(@RequestBody IntegrationChangeHistoryEntity integrationChangeHistory){
+        integrationChangeHistoryService.updateById(integrationChangeHistory);
 
         return R.ok();
     }
@@ -79,11 +79,12 @@ public class IntegrationChangeHistoryController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:umsintegrationchangehistory:delete")
+    //@RequiresPermissions("member:integrationchangehistory:delete")
     public R delete(@RequestBody Long[] ids){
-		integrationChangeHistoryService.removeByIds(Arrays.asList(ids));
+        integrationChangeHistoryService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
+
 
 }

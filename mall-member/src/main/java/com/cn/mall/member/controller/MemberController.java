@@ -32,21 +32,23 @@ public class MemberController {
     private MemberService memberService;
 
     @Autowired
-    private CouponFeignService couponFeignService;
+    CouponFeignService couponFeignService;
 
     @RequestMapping("/coupons")
-    public R test() {
+    public R test(){
         MemberEntity memberEntity = new MemberEntity();
-        memberEntity.setNickname("hahha");
-        R memberCoupons = couponFeignService.memberCoupons();
-        return R.ok().put("member", memberEntity).put("coupons", memberCoupons.get("coupons"));
+        memberEntity.setNickname("张三");
+
+        R membercoupons = couponFeignService.memberCoupons();
+        return R.ok().put("member",memberEntity).put("coupons",membercoupons.get("coupons"));
     }
+
 
     /**
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:umsmember:list")
+    //@RequiresPermissions("member:member:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberService.queryPage(params);
 
@@ -58,20 +60,20 @@ public class MemberController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:umsmember:info")
+    //@RequiresPermissions("member:member:info")
     public R info(@PathVariable("id") Long id){
-		MemberEntity umsMember = memberService.getById(id);
+        MemberEntity member = memberService.getById(id);
 
-        return R.ok().put("umsMember", umsMember);
+        return R.ok().put("member", member);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:umsmember:save")
-    public R save(@RequestBody MemberEntity umsMember){
-		memberService.save(umsMember);
+    //@RequiresPermissions("member:member:save")
+    public R save(@RequestBody MemberEntity member){
+        memberService.save(member);
 
         return R.ok();
     }
@@ -80,9 +82,9 @@ public class MemberController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:umsmember:update")
-    public R update(@RequestBody MemberEntity umsMember){
-		memberService.updateById(umsMember);
+    //@RequiresPermissions("member:member:update")
+    public R update(@RequestBody MemberEntity member){
+        memberService.updateById(member);
 
         return R.ok();
     }
@@ -91,11 +93,10 @@ public class MemberController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:umsmember:delete")
+    //@RequiresPermissions("member:member:delete")
     public R delete(@RequestBody Long[] ids){
-		memberService.removeByIds(Arrays.asList(ids));
+        memberService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
-
 }

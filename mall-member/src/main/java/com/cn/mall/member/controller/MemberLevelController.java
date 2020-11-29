@@ -25,7 +25,7 @@ import com.cn.mall.common.utils.R;
  * @date 2020-09-22 23:32:22
  */
 @RestController
-@RequestMapping("member/umsmemberlevel")
+@RequestMapping("member/memberlevel")
 public class MemberLevelController {
     @Autowired
     private MemberLevelService memberLevelService;
@@ -34,7 +34,7 @@ public class MemberLevelController {
      * 列表
      */
     @RequestMapping("/list")
-    //@RequiresPermissions("member:umsmemberlevel:list")
+    //@RequiresPermissions("member:memberlevel:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = memberLevelService.queryPage(params);
 
@@ -46,20 +46,20 @@ public class MemberLevelController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    //@RequiresPermissions("member:umsmemberlevel:info")
+    //@RequiresPermissions("member:memberlevel:info")
     public R info(@PathVariable("id") Long id){
-		MemberLevelEntity umsMemberLevel = memberLevelService.getById(id);
+        MemberLevelEntity memberLevel = memberLevelService.getById(id);
 
-        return R.ok().put("umsMemberLevel", umsMemberLevel);
+        return R.ok().put("memberLevel", memberLevel);
     }
 
     /**
      * 保存
      */
     @RequestMapping("/save")
-    //@RequiresPermissions("member:umsmemberlevel:save")
-    public R save(@RequestBody MemberLevelEntity umsMemberLevel){
-		memberLevelService.save(umsMemberLevel);
+    //@RequiresPermissions("member:memberlevel:save")
+    public R save(@RequestBody MemberLevelEntity memberLevel){
+        memberLevelService.save(memberLevel);
 
         return R.ok();
     }
@@ -68,9 +68,9 @@ public class MemberLevelController {
      * 修改
      */
     @RequestMapping("/update")
-    //@RequiresPermissions("member:umsmemberlevel:update")
-    public R update(@RequestBody MemberLevelEntity umsMemberLevel){
-		memberLevelService.updateById(umsMemberLevel);
+    //@RequiresPermissions("member:memberlevel:update")
+    public R update(@RequestBody MemberLevelEntity memberLevel){
+        memberLevelService.updateById(memberLevel);
 
         return R.ok();
     }
@@ -79,9 +79,9 @@ public class MemberLevelController {
      * 删除
      */
     @RequestMapping("/delete")
-    //@RequiresPermissions("member:umsmemberlevel:delete")
+    //@RequiresPermissions("member:memberlevel:delete")
     public R delete(@RequestBody Long[] ids){
-		memberLevelService.removeByIds(Arrays.asList(ids));
+        memberLevelService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
